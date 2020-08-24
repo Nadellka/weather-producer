@@ -1,0 +1,55 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.8.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.egen'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	
+	//compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.2.8.RELEASE'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws', version: '2.2.2.RELEASE'
+
+	//compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws-jdbc', version: '2.2.2.RELEASE'
+	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
+	 compile group: 'org.springframework.cloud', name: 'spring-cloud-aws-messaging', version: '2.2.2.RELEASE'
+	
+  
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+    
+    
+	
+	annotationProcessor 'org.projectlombok:lombok'
+	// https://mvnrepository.com/artifact/junit/junit
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.2.8.RELEASE'
+    
+	
+	/*testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}*/
+}
+
+test {
+	useJUnitPlatform()
+}
